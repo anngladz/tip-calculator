@@ -49,10 +49,7 @@ function calculateTip(billValue, percent, peopleValue) {
     let total = Number(billValue) + Number(tip);
     tipAmount.textContent = `$${(tip / peopleValue).toFixed(2)}`;
     totalAmount.textContent = `$${(total / peopleValue).toFixed(2)}`;
-    people.classList.remove("error");
-    bill.classList.remove("error");
-    error.classList.remove("show");
-    errorBill.classList.remove("show");
+    removeErrorClasses();
   }
 }
 
@@ -64,6 +61,14 @@ function reset() {
   tipAmount.textContent = "$0.00";
   totalAmount.textContent = "$0.00";
   resetBtn.classList.remove("active");
+  removeErrorClasses();
+}
+
+function removeErrorClasses() {
+  people.classList.remove("error");
+  bill.classList.remove("error");
+  error.classList.remove("show");
+  errorBill.classList.remove("show");
 }
 
 resetBtn.addEventListener("click", reset);
